@@ -78,13 +78,13 @@ func main() {
 
 	manifests, err := table.CurrentSnapshot().Manifests(iofs)
 	if err != nil {
-		log.Fatal().Err(err).Msg("failed to create table")
+		log.Fatal().Err(err).Msg("failed to get current snapshots manifests")
 	}
 
 	for _, m := range manifests {
 		data, err := json.Marshal(m)
 		if err != nil {
-			log.Fatal().Err(err).Msg("failed to create table")
+			log.Fatal().Err(err).Msg("failed to marshal manifest")
 		}
 
 		fmt.Println(string(data))
